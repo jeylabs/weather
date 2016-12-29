@@ -21,8 +21,6 @@ class WeatherServiceProvider extends ServiceProvider
         $source = __DIR__ . '/config/weather.php';
         if ($app instanceof LaravelApplication && $app->runningInConsole()) {
             $this->publishes([$source => config_path('weather.php')]);
-        } elseif ($app instanceof LumenApplication) {
-            $app->configure('weather');
         }
         $this->mergeConfigFrom($source, 'weather');
     }
